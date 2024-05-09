@@ -23,7 +23,7 @@ public class UserController {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public RestResponse<?> createUser(UserForm form, @Context UriInfo uriInfo) {
+    public RestResponse<?> createUser(UserForm form, @Context UriInfo uriInfo) throws Exception {
         UserDto userDto = userService.save(form);
         return ResponseBuilder.created(uriInfo.getAbsolutePathBuilder().path(String.valueOf(userDto.id())).build()).entity(userDto).build();
     }

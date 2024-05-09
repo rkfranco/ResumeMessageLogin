@@ -12,7 +12,7 @@ public class UserService {
     @Inject
     private UserRepository userRepository;
 
-    public UserDto save(UserForm form) {
+    public UserDto save(UserForm form) throws Exception {
         return new UserDto(userRepository.save(new User(form)));
     }
 }
