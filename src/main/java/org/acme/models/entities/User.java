@@ -1,6 +1,11 @@
 package org.acme.models.entities;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.GenerationType;
 import org.acme.models.forms.LoginForm;
 import org.acme.models.forms.UserForm;
 
@@ -10,7 +15,8 @@ import java.security.MessageDigest;
 @Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_sequence")
+    @SequenceGenerator(name = "users_sequence", sequenceName = "sequence_users")
     private Long id;
 
     private String name;
