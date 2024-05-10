@@ -2,6 +2,7 @@ package br.com.digab.messageresume.services;
 
 import br.com.digab.messageresume.models.dtos.UserDto;
 import br.com.digab.messageresume.models.entities.User;
+import br.com.digab.messageresume.models.exceptions.UserAllreadyExistsException;
 import br.com.digab.messageresume.models.forms.UserForm;
 import br.com.digab.messageresume.repositories.UserRepository;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -13,6 +14,12 @@ public class UserService {
     private UserRepository userRepository;
 
     public UserDto save(UserForm form) throws Exception {
-        return new UserDto(userRepository.save(new User(form)));
+        User user = new User(form);
+
+        if (userRepository.isUserAllreadyExists(user)) {
+            throw new UserAllreadyExistsException();
+        }
+        
+        return new UserDto(userRepository.save(user));
     }
 }

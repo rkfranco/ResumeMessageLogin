@@ -25,7 +25,13 @@ public class UserRepository {
         return (Optional<User>) em.createNativeQuery("SELECT * FROM users WHERE name = :name AND password = :password" , User.class)
                 .setParameter("name" , user.getName())
                 .setParameter("password" , user.getPassword())
-                .getResultStream()
+            .getResultStream()
         .findFirst();
+    }
+
+    public boolean isUserAllreadyExists(User user) {
+        return (boolean) em.createNativeQuery("SELECT EXISTS(SELECT FROM users WHERE name = :name)")
+            .setParameter("name" , user.getName())
+        .getSingleResult();
     }
 }
