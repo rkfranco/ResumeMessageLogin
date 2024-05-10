@@ -1,10 +1,10 @@
-package org.acme.infra.handlers;
+package br.com.digab.messageresume.infra.handlers;
 
+import br.com.digab.messageresume.models.exceptions.UserAuthenticationException;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.Status;
 import jakarta.ws.rs.ext.ExceptionMapper;
 import jakarta.ws.rs.ext.Provider;
-import org.acme.models.exceptions.UserAuthenticationException;
 
 @Provider
 public class ExceptionHandler implements ExceptionMapper<Throwable> {

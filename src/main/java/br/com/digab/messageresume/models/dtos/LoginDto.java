@@ -1,6 +1,6 @@
-package org.acme.models.dtos;
+package br.com.digab.messageresume.models.dtos;
 
-import org.acme.models.entities.User;
+import br.com.digab.messageresume.models.entities.User;
 
 public record LoginDto(String name, Long id) {
     public LoginDto(User user) {

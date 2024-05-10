@@ -1,11 +1,11 @@
-package org.acme.services;
+package br.com.digab.messageresume.services;
 
+import br.com.digab.messageresume.models.dtos.UserDto;
+import br.com.digab.messageresume.models.entities.User;
+import br.com.digab.messageresume.models.forms.UserForm;
+import br.com.digab.messageresume.repositories.UserRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import org.acme.models.dtos.UserDto;
-import org.acme.models.entities.User;
-import org.acme.models.forms.UserForm;
-import org.acme.repositories.UserRepository;
 
 @ApplicationScoped
 public class UserService {

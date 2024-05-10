@@ -1,18 +1,19 @@
-package org.acme.repositories;
+package br.com.digab.messageresume.repositories;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
-import org.acme.models.entities.User;
 
 import java.util.Optional;
+
+import br.com.digab.messageresume.models.entities.User;
 
 @Transactional
 @ApplicationScoped
 @SuppressWarnings("unchecked")
 public class UserRepository {
-    @Inject
+    @PersistenceContext
     private EntityManager em;
 
     public User save(User user) {
@@ -25,6 +26,6 @@ public class UserRepository {
                 .setParameter("name" , user.getName())
                 .setParameter("password" , user.getPassword())
                 .getResultStream()
-                .findFirst();
+        .findFirst();
     }
 }

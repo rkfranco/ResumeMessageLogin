@@ -1,4 +1,4 @@
-package org.acme.models.exceptions;
+package br.com.digab.messageresume.models.exceptions;
 
 public class UserAuthenticationException extends Exception {
 }

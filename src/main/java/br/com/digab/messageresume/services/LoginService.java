@@ -1,12 +1,12 @@
-package org.acme.services;
+package br.com.digab.messageresume.services;
 
+import br.com.digab.messageresume.models.dtos.LoginDto;
+import br.com.digab.messageresume.models.entities.User;
+import br.com.digab.messageresume.models.exceptions.UserAuthenticationException;
+import br.com.digab.messageresume.models.forms.LoginForm;
+import br.com.digab.messageresume.repositories.UserRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import org.acme.models.dtos.LoginDto;
-import org.acme.models.entities.User;
-import org.acme.models.exceptions.UserAuthenticationException;
-import org.acme.models.forms.LoginForm;
-import org.acme.repositories.UserRepository;
 
 @ApplicationScoped
 public class LoginService {
